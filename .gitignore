@@ -26,4 +26,4 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 static/app-generated.css
-static/app-generated.css
+static/app-generated.js
