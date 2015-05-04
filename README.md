@@ -1,2 +1,2 @@
 # Protoception
-A seed project for developing front-end web prototypes
+A seed project for developing SPA prototypes
