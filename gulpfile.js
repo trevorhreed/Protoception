@@ -80,14 +80,17 @@ function reload(event){
   tinylr.changed({ body: { files: [filename] } });
 }
 
+gulp.task('run', function(){
+  tinylr.listen(TINYLR_PORT);
+  nodemon({script: 'server.js'});
+})
+
 gulp.task('build', function(){
   compileSass();
   compileJs();
 });
 
-gulp.task('default', ['build'], function(){
-    tinylr.listen(TINYLR_PORT);
-    nodemon({script: 'server.js'});
+gulp.task('default', ['build', 'run'], function(){
     watch(SCSS_GLOB, compileSass);
     watch([HTML_GLOB, JS_GLOB], compileJs);
     gulp.watch([HTML_GLOB, CSS_GLOB, JS_GLOB], reload);

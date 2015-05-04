@@ -1,6 +1,5 @@
 var express = require('express'),
     connectlr = require('connect-livereload'),
-    sanitize = require('sanitize-filename'),
     bodyParser = require('body-parser'),
     fs = require('fs'),
     path = require('path'),
