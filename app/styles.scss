@@ -1,6 +1,42 @@
+$main-width: 60rem;
+$main-padding: 5rem;
+$nav-width: 20rem;
+
+html,body{
+	padding:0;
+	margin:0;
+	height:100%
+}
 body{
-	background-color:#000;
-	a{
-		color:#fff;
+	background: #fcfcfc;
+	&>div[ui-view]{
+		height:100%;
+	}
+}
+main{
+	width:$main-width;
+	margin:0 auto;
+	min-height:100%;
+	background:#fff;
+	box-shadow:0 0 1rem #aaa;
+	padding:$main-padding * .2 $main-padding $main-padding * 1.2 $main-padding;
+}
+nav{
+	position:fixed;
+	width:$nav-width;
+	left:50%;
+	margin-left:($main-width / 2) + 2;
+	padding:2rem;
+
+	box-shadow:0 0 1rem #aaa;
+	border-bottom-left-radius:1rem;
+	border-bottom-right-radius:1rem;
+
+	ul{
+		padding:0;
+		li{
+			list-style:none;
+			margin-bottom:.6rem;
+		}
 	}
 }

@@ -1,0 +1,35 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%; }
+
+body {
+  background: #fcfcfc; }
+  body > div[ui-view] {
+    height: 100%; }
+
+main {
+  width: 60rem;
+  margin: 0 auto;
+  min-height: 100%;
+  background: #fff;
+  box-shadow: 0 0 1rem #aaa;
+  padding: 1rem 5rem 6rem 5rem; }
+
+nav {
+  position: fixed;
+  width: 20rem;
+  left: 50%;
+  margin-left: 32rem;
+  padding: 2rem;
+  box-shadow: 0 0 1rem #aaa;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem; }
+  nav ul {
+    padding: 0; }
+    nav ul li {
+      list-style: none;
+      margin-bottom: .6rem; }
+
+.data {
+  margin: 5rem 0; }

@@ -8,6 +8,8 @@ var express = require('express'),
     urljoin = require('url-join')
 ;
 
+var LR_PORT         = 35729;
+
 function handle(method){
   return function(req, res){
     var file = path.join(__dirname, 'data.json')
@@ -40,15 +42,8 @@ function handle(method){
   }
 }
 
-function get(node, url, db, entity){
-  return node.value();
-}
-function put(node, url, db, entity){
-  var index = url.lastIndexOf('/') + 1,
-      location = url.substr(0, index),
-      key = url.substr(index);
-
-  if(!db.assert(location)){
+function ensureNodeExists(url, db){
+  if(!db.assert(url)){
     var nodes = url.split('/'),
         prev = '/';
     for(var i=0; i < nodes.length; i++){
@@ -60,23 +55,36 @@ function put(node, url, db, entity){
       prev = next;
     }
   }
+  return db.select(url);
+}
 
+function get(node, url, db, entity){
+  return node.value();
+}
+function put(node, url, db, entity){
+  var index = url.lastIndexOf('/') + 1,
+      location = url.substr(0, index),
+      key = url.substr(index);
+
+  ensureNodeExists(location, db);
   return db.select(location).set(key, entity);
 }
 function post(node, url, db, entity){
   var id = uuid.v4();
+  node = ensureNodeExists(url, db);
   return node.set(id, entity);
 }
 function del(node, url, db, entity){
   return node.destroy(undefined);
 }
 
-express()
+var app = express();
+app
     .use(bodyParser.json())
     .get('/data/*', handle(get))
     .put('/data/*', handle(put))
     .post('/data/*', handle(post))
     .delete('/data/*', handle(del))
-    .use(connectlr())
+    .use(connectlr({'port': LR_PORT}))
     .use(express.static('static'))
     .listen(3000);

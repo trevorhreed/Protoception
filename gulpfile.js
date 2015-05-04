@@ -35,7 +35,7 @@ function end(msg) {
 	}
 }
 
-var TINYLR_PORT     = 35729,
+var LR_PORT         = 35729,
     SRC_ROOT        = './app/',
     SCSS_GLOB       = SRC_ROOT + '**/*.scss',
     HTML_GLOB       = SRC_ROOT + '**/*.html',
@@ -43,9 +43,10 @@ var TINYLR_PORT     = 35729,
     JS_GLOB         = SRC_ROOT + '**/*.js',
 
     DST_ROOT        = './static/',
-    DST_JS          = 'app.js',
-    DST_CSS         = 'app.css',
-    DST_ASSETS      = [DST_ROOT + DST_JS, DST_ROOT + DST_CSS]
+    DST_JS          = 'app-generated.js',
+    DST_CSS         = 'app-generated.css',
+    DST_HTML        = 'index.html',
+    DST_ASSETS      = [DST_ROOT + DST_JS, DST_ROOT + DST_CSS, DST_ROOT + DST_HTML]
 
     NG_HTML_OPTIONS = {
         "module": "app",
@@ -76,22 +77,19 @@ function compileJs(){
     .on('end', end('js'));
 }
 function reload(event){
-  var filename = path.relative(__dirname + SRC_ROOT, event.path);
-  tinylr.changed({ body: { files: [filename] } });
+    file = path.relative(__dirname + DST_ROOT, event.path);
+    tinylr.changed({ body: { files: [file] } });
 }
-
-gulp.task('run', function(){
-  tinylr.listen(TINYLR_PORT);
-  nodemon({script: 'server.js'});
-})
 
 gulp.task('build', function(){
   compileSass();
   compileJs();
 });
 
-gulp.task('default', ['build', 'run'], function(){
-    watch(SCSS_GLOB, compileSass);
-    watch([HTML_GLOB, JS_GLOB], compileJs);
-    gulp.watch([HTML_GLOB, CSS_GLOB, JS_GLOB], reload);
+gulp.task('default', ['build'], function(){
+  tinylr.listen(LR_PORT);
+  nodemon({script: 'server.js'});
+  watch(SCSS_GLOB, compileSass);
+  watch([HTML_GLOB, JS_GLOB], compileJs);
+  gulp.watch(DST_ASSETS, reload);
 })
