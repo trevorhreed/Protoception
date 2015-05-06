@@ -9,7 +9,8 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller: 'login'
 		})
 		.state('layout', {
-			templateUrl: 'layout'
+			templateUrl: 'layout',
+			controller: 'layout'
 		})
 		.state('layout.home', {
 			url: '/',
@@ -28,6 +29,20 @@ app.config(function($stateProvider, $urlRouterProvider){
 
 });
 
+app.config(function(apiProvider){
+	apiProvider.provideApis([
+		"users",
+		"contacts"
+	])
+})
+
+app.config(function($mdThemingProvider){
+	$mdThemingProvider
+		.theme('default')
+		.primaryPalette('amber')
+		.accentPalette('blue')
+});
+
 app.run(function($rootScope, $location, auth){
 	$rootScope.$on('$stateChangeStart',
 	function(event, toState, toParams, fromState, fromParams){
@@ -37,7 +52,6 @@ app.run(function($rootScope, $location, auth){
 		}
 
 		if(!auth.isauthed()){
-			console.log('User not authorized');
 			$location.path('/login');
 		}
 

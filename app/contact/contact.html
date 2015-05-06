@@ -1,27 +1,75 @@
 <h1>Contact Us</h1>
 <form novalidate>
-	<div class="form-group">
-		<label for="txtName">Name</label>
-		<input class="form-control" id="txtName" ng-model="contact.name" />
-	</div>
-	<div class="form-group">
-		<label for="txtName">Email Address</label>
-		<input type="email" class="form-control" id="txtEmail" ng-model="contact.email" />
-	</div>
-	<div class="form-group">
-		<label for="txtName">Message</label>
-		<textarea class="form-control" id="txtMessage" ng-model="contact.message"></textarea>
-	</div>
-	<div class="form-group">
-		<label>
-			<input type="checkbox" ng-model="contact.allowContact" /> Allow us to contact you regarding your feedback?
-		</label>
-	</div>
-
-	<button type="submit" class="btn btn-primary" ng-click="save()">Send</button>
+	<md-input-container>
+		<label>Name</label>
+		<input ng-model="contact.name" />
+	</md-input-container>
+	<md-input-container>
+		<label>Email</label>
+		<input ng-model="contact.email" />
+	</md-input-container>
+	<md-input-container>
+		<label>Message</label>
+		<textarea ng-model="contact.message"></textarea>
+	</md-input-container>
+	<md-checkbox ng-model="contact.allowContact">
+		Allow us to contact you regarding your feedback?
+	</md-checkbox>
+	<md-button ng-click="save()" class="md-raised md-accent">Save</md-button>
+	<md-button ng-click="contact={}" class="md-raised">Cancel</md-button>
 </form>
 
-<div class="data">
-	<h3>Contacts</h3>
-	<pre class="code">{{data | json}}</pre>
-</div>
+<table class='data-table'>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th fill>Message</th>
+			<th>Contact?</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="contact in contactsApi.items" ng-class-even="'even'">
+			<td tight>{{contact.name}}</td>
+			<td tight>{{contact.email}}</td>
+			<td>{{contact.message}}</td>
+			<td class="center">{{contact.allowContact ? "Yes" : "No"}}</td>
+			<td tight>
+				<md-button ng-click="edit(contact)">Edit</md-button>
+				<md-button ng-click="contactsApi.del(contact)">Del</md-button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<style>
+	.data-table .center{
+		text-align:center;
+	}
+	.data-table [fill]{
+		width:100%;
+	}
+	.data-table [tight]{
+		white-space:nowrap;
+		width:1px;
+	}
+	.data-table{
+		margin:2rem 0;
+		border-collapse:collapse;
+		width:100%;
+	}
+	.data-table td,.data-table th{
+		padding:.5rem;
+	}
+	.data-table th{
+		border-bottom:solid 1px #ddd;
+		text-align:left;
+	}
+	.data-table .even td{
+		background-color:#fafafa;
+	}
+	.data-table tr:hover td{
+		background-color:#f3f3f3 !important;
+	}
+</style>

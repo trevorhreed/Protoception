@@ -1,20 +1,13 @@
-app.controller('contact', function($scope, $http){
+app.controller('contact', function($scope, $http, contactsApi){
 	$scope.contact = {};
+	$scope.contactsApi = contactsApi;
+	contactsApi.refresh();
 
-	function getDb(){
-		$http
-			.get("/data/contacts")
-			.success(function(data){
-				$scope.data = data;
-			});
+	$scope.edit = function(contact){
+		$scope.contact = angular.copy(contact);
 	}
-	getDb();
-
 	$scope.save = function(){
-		$http
-			.post("/data/contacts", $scope.contact)
-			.success(function(data){
-				getDb();
-			});
+		contactsApi.put($scope.contact);
+		$scope.contact = {};
 	}
 });

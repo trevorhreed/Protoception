@@ -1,1 +1,25 @@
-{}
+{
+  "contacts": {
+    "e9c3e83f-2a8b-41b4-bd22-d22906deef48": {
+      "name": "Trevor Reed",
+      "email": "trevorhreed@gmail.com",
+      "message": "Ok, this is pretty cool.",
+      "allowContact": true,
+      "$key": "e9c3e83f-2a8b-41b4-bd22-d22906deef48"
+    },
+    "b298bacb-1cfc-4bd2-9e7d-a8ee05f46940": {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "message": "Well, it looks like you've done pretty well here.",
+      "$key": "b298bacb-1cfc-4bd2-9e7d-a8ee05f46940"
+    }
+  },
+  "tests": {
+    "928b8971-6eec-463b-9927-3e7560ed09af": {
+      "msg": "You've done it again!"
+    },
+    "58b078e2-e5de-454f-a69f-0a93923ed292": {
+      "msg": "Well, I never..."
+    }
+  }
+}

@@ -1,40 +1,19 @@
-<form ng-submit="login()">
-	<fieldset>
-		<h1>Please log in</h1>
-		<label>
-			<input type="text" class="form-control" ng-model="user.name" placeholder="Username" />
-		</label>
-		<label>
-			<input type="password" class="form-control" ng-model="user.pass" placeholder="Password" />
-		</label>
-		<button type="submit" class="btn btn-primary">Login</button>
-	</fieldset>
-</form>
+<md-content class='ns-login' layout="column" layout-fill layout-align="start center">
+	<form class="md-whiteframe-z1 login-box" ng-submit="login()">
 
-<style>
-	fieldset{
-		margin:10rem auto;
-		width:40rem;
-		padding:5rem;
-		background:#fafafa;
-		box-shadow:0 .5rem .5rem #aaa;
-		border:solid 1px #ddd;
-	}
-	input,label{
-		display:block
-	}
-	h1,input{
-		margin-bottom:2rem
-	}
-	h1{
-		font-size:2rem;
-		margin:0 0 4rem;
-		border-bottom:solid 1px #ddd;
-		padding-bottom:.5rem
-	}
-	button{
-		float:right;
-		width:10rem;
-		margin-top:2rem
-	}
-</style>
+		<h2>Please log in</h2>
+		
+		<md-input-container>
+			<label>Username</label>
+			<input ng-model="user.name" set-focus />
+		</md-input-container>
+
+		<md-input-container>
+			<label>Password</label>
+			<input ng-model="user.pass" type="password" />
+		</md-input-container>
+
+		<md-button class="btn-login">Login</md-button>
+
+	</form>
+</md-content>

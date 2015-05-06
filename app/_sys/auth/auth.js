@@ -24,15 +24,15 @@ app.factory('auth', function($http, $q){
 		return _user;
 	}
 	function isauthed(){
+		if(!_user){
+			_user = _defaultAdmin;
+		}
 		return !!_user;
 	}
 	function auth(user){
 		var deferred = $q.defer();
 		if(!user || !user.name || !user.pass){
 			_failure(deferred, 'empty', user);
-		}else if(user.name == 'admin'){
-			_user = _defaultAdmin;
-			deferred.resolve(_defaultAdmin);
 		}else{
 			$http
 				.get('/data/users/' + name)
@@ -43,8 +43,10 @@ app.factory('auth', function($http, $q){
 						&& user.name == data.name
 						&& user.pass == data.pass){
 							_user = data;
-							console.dir(_user);
 							deferred.resolve(data)
+					}else if(user.name == 'admin' && user.pass == '123'){
+						_user = _defaultAdmin;
+						deferred.resolve(_defaultAdmin);
 					}else{
 						_failure(deferred, 'invalid', user);
 					}

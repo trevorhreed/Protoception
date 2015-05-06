@@ -1,8 +1,32 @@
-<nav>
-	<ul>
-		<li><a href="#/">Home</a></li>
-		<li><a href="#/about">About</a></li>
-		<li><a href="#/contact">Contact</a></li>
-	</ul>
-</nav>
-<main ui-view></main>
+<div layout="column" tall>
+	<md-toolbar class="md-accent">
+		<div class="md-toolbar-tools">
+			<md-button ng-click="openNav()" hide-gt-md>Nav</md-button>
+			<h2><span>The Demo Application!</span></h2>
+		</div>
+	</md-toolbar>
+
+	<md-content layout="row" flex>
+
+		<md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" class="md-sidenav-left" ng-class="{'md-whiteframe-z2': !bigScreen }">
+			<md-list>
+				<md-subheader>CMS</md-subheader>
+				<md-list-item ng-click="goTo('/')">
+					<p>Home</p>
+				</md-list-item>
+				<md-list-item ng-click="goTo('/about')">
+					<p>About</p>
+				</md-list-item>
+				<md-divider></md-divider>
+				<md-subheader>Admin</md-subheader>
+				<md-list-item ng-click="goTo('/contact')">
+					<p>Contact</p>
+				</md-list-item>
+			</md-list>
+		</md-sidenav>
+
+		<main ui-view flex layout-padding></main>
+
+	</md-content>
+
+</div>

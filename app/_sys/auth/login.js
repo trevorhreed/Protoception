@@ -1,11 +1,11 @@
-app.controller('login', function($scope, $location, auth){
+app.controller('login', function($scope, $location, $mdToast, auth){
 	$scope.login = function(){
-		console.log('authenticating...');
 		auth.auth($scope.user).then(function(){
-			console.log('redirecting...');
 			$location.path('/');
 		}, function(err){
-			console.dir(err);
+			$mdToast.show(
+				$mdToast.simple().content(err.msg)
+			);
 		});
 	}
 });

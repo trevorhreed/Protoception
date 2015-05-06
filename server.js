@@ -65,17 +65,19 @@ function put(node, url, db, entity){
   var index = url.lastIndexOf('/') + 1,
       location = url.substr(0, index),
       key = url.substr(index);
-
   ensureNodeExists(location, db);
-  return db.select(location).set(key, entity);
+  return db.select(location).set(key, entity).select('/' + key).value();
 }
 function post(node, url, db, entity){
-  var id = uuid.v4();
+  var key = uuid.v4();
+  entity.$key = key;
   node = ensureNodeExists(url, db);
-  return node.set(id, entity);
+  return node.set(key, entity).select('/' + key).value();
 }
 function del(node, url, db, entity){
-  return node.destroy(undefined);
+  var item = node.value();
+  node.destroy(undefined);
+  return item;
 }
 
 var app = express();
