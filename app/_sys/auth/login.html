@@ -1,0 +1,40 @@
+<form ng-submit="login()">
+	<fieldset>
+		<h1>Please log in</h1>
+		<label>
+			<input type="text" class="form-control" ng-model="user.name" placeholder="Username" />
+		</label>
+		<label>
+			<input type="password" class="form-control" ng-model="user.pass" placeholder="Password" />
+		</label>
+		<button type="submit" class="btn btn-primary">Login</button>
+	</fieldset>
+</form>
+
+<style>
+	fieldset{
+		margin:10rem auto;
+		width:40rem;
+		padding:5rem;
+		background:#fafafa;
+		box-shadow:0 .5rem .5rem #aaa;
+		border:solid 1px #ddd;
+	}
+	input,label{
+		display:block
+	}
+	h1,input{
+		margin-bottom:2rem
+	}
+	h1{
+		font-size:2rem;
+		margin:0 0 4rem;
+		border-bottom:solid 1px #ddd;
+		padding-bottom:.5rem
+	}
+	button{
+		float:right;
+		width:10rem;
+		margin-top:2rem
+	}
+</style>
