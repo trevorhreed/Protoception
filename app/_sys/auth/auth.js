@@ -1,4 +1,4 @@
-app.factory('auth', function($http, $q){
+app.factory('auth', function($http, $q, $location){
 	var _user,
 			_defaultAdmin = {
 				'name': 'admin',
@@ -59,6 +59,8 @@ app.factory('auth', function($http, $q){
 	}
 	function unauth(){
 		user = null;
+		console.log("Yo?");
+		$location.path('/login');
 	}
 
 	return {
