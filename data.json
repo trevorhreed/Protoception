@@ -6,18 +6,6 @@
       "message": "Ok, this is pretty cool.",
       "allowContact": true,
       "$key": "e9c3e83f-2a8b-41b4-bd22-d22906deef48"
-    },
-    "b298bacb-1cfc-4bd2-9e7d-a8ee05f46940": {
-      "name": "John Doe",
-      "email": "john@example.com",
-      "message": "Well, it looks like you've done pretty well here.",
-      "$key": "b298bacb-1cfc-4bd2-9e7d-a8ee05f46940"
-    },
-    "2e808ded-eaf8-4e64-8800-3a20f2291168": {
-      "$key": "2e808ded-eaf8-4e64-8800-3a20f2291168"
-    },
-    "6b546d2e-8ce7-41ef-8ae8-a231b74e1cff": {
-      "$key": "6b546d2e-8ce7-41ef-8ae8-a231b74e1cff"
     }
   },
   "tests": {

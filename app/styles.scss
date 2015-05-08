@@ -17,6 +17,20 @@ body{
 	}
 }
 
+[fixed-left-nav]{
+	position:fixed !important;
+	top:4rem;
+	bottom:0;
+	overflow:auto;
+}
+
+md-icon{
+	font-size:1.6rem;
+}
+.icon-bin{
+	color:#F55;
+}
+
 /*
 $main-width: 60rem;
 $main-padding: 5rem;

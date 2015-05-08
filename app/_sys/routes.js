@@ -36,7 +36,7 @@ app.config(function(apiProvider){
 	])
 })
 
-app.config(function($mdThemingProvider){
+app.config(function($mdThemingProvider, $mdIconProvider){
 	$mdThemingProvider
 		.theme('default')
 		.primaryPalette('amber')

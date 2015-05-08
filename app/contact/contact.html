@@ -1,13 +1,15 @@
 <h1>Contact Us</h1>
 <form novalidate>
-	<md-input-container>
-		<label>Name</label>
-		<input ng-model="contact.name" />
-	</md-input-container>
-	<md-input-container>
-		<label>Email</label>
-		<input ng-model="contact.email" />
-	</md-input-container>
+	<div layout="column" layout-gt-md="row">
+		<md-input-container flex>
+			<label>Name</label>
+			<input ng-model="contact.name" />
+		</md-input-container>
+		<md-input-container flex>
+			<label>Email</label>
+			<input ng-model="contact.email" />
+		</md-input-container>
+	</div>
 	<md-input-container>
 		<label>Message</label>
 		<textarea ng-model="contact.message"></textarea>
@@ -19,57 +21,34 @@
 	<md-button ng-click="contact={}" class="md-raised">Cancel</md-button>
 </form>
 
-<table class='data-table'>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Email</th>
-			<th fill>Message</th>
-			<th>Contact?</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="contact in contactsApi.items" ng-class-even="'even'">
-			<td tight>{{contact.name}}</td>
-			<td tight>{{contact.email}}</td>
-			<td>{{contact.message}}</td>
-			<td class="center">{{contact.allowContact ? "Yes" : "No"}}</td>
-			<td tight>
-				<md-button ng-click="edit(contact)">Edit</md-button>
-				<md-button ng-click="contactsApi.del(contact)">Del</md-button>
-			</td>
-		</tr>
-	</tbody>
-</table>
-
 <style>
-	.data-table .center{
-		text-align:center;
+	.push-down{
+		margin-top:2rem;
 	}
-	.data-table [fill]{
-		width:100%;
-	}
-	.data-table [tight]{
-		white-space:nowrap;
-		width:1px;
-	}
-	.data-table{
-		margin:2rem 0;
-		border-collapse:collapse;
-		width:100%;
-	}
-	.data-table td,.data-table th{
-		padding:.5rem;
-	}
-	.data-table th{
-		border-bottom:solid 1px #ddd;
-		text-align:left;
-	}
-	.data-table .even td{
-		background-color:#fafafa;
-	}
-	.data-table tr:hover td{
-		background-color:#f3f3f3 !important;
-	}
+	
 </style>
+
+<md-content class="push-down">
+	<h2 class="md-title">
+		Contacts
+		({{contactsApi.items.length}})
+	</h2>
+	<md-input-container md-no-float>
+		<input ng-model="search" placeholder="Search" />
+	</md-input-container>
+	<md-list>
+		<md-list-item ng-repeat="contact in contactsApi.items | filter: search" class="md-3-line" ng-click="edit(contact)">
+			<div class="md-list-item-text">
+				<h3>{{contact.name}}</h3>
+				<div layout="column" layout-gt-sm="row">
+					<p><a href="mailto:{{contact.email}}">{{contact.email}}</a>&nbsp;</p>
+					<p>{{contact.allowContact ? "" : "(don't contact)"}}</p>
+					<span flex></span>
+				</div>
+				<p>{{contact.message}}</p>
+			</div>
+			<md-icon md-font-icon="icon-bin" class="md-secondary" ng-click="contactsApi.del(contact)" aria-label="delete"></md-icon>
+			<md-divider ng-if="!$last"></md-divider>
+		</md-list-item>
+	</md-list>
+</md-content>
