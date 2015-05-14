@@ -1,0 +1,19 @@
+<md-content class='ns-login' layout="column" layout-fill layout-align="start center">
+	<form class="md-whiteframe-z1 login-box" ng-submit="login()">
+
+		<h2>Please log in</h2>
+		
+		<md-input-container>
+			<label>Username</label>
+			<input ng-model="user.name" set-focus />
+		</md-input-container>
+
+		<md-input-container>
+			<label>Password</label>
+			<input ng-model="user.pass" type="password" />
+		</md-input-container>
+
+		<md-button class="btn-login">Login</md-button>
+
+	</form>
+</md-content>

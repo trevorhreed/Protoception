@@ -1,1 +1,19 @@
-{}
+{
+  "contacts": {
+    "e9c3e83f-2a8b-41b4-bd22-d22906deef48": {
+      "name": "Trevor Reed",
+      "email": "trevorhreed@gmail.com",
+      "message": "Ok, this is pretty cool.",
+      "allowContact": true,
+      "$key": "e9c3e83f-2a8b-41b4-bd22-d22906deef48"
+    }
+  },
+  "tests": {
+    "928b8971-6eec-463b-9927-3e7560ed09af": {
+      "msg": "You've done it again!"
+    },
+    "58b078e2-e5de-454f-a69f-0a93923ed292": {
+      "msg": "Well, I never..."
+    }
+  }
+}
