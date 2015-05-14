@@ -1,4 +1,7 @@
-app.controller('layout', function($scope, $location, $mdSidenav, $mdMedia, auth){
+app.controller('layout', function($scope, $state, $mdSidenav, $mdMedia, auth, navigation){
+
+	$scope.navigation = navigation;
+	//$scope.$state = $state;
 
 	$scope.user = auth.user();
 
@@ -6,13 +9,13 @@ app.controller('layout', function($scope, $location, $mdSidenav, $mdMedia, auth)
 		$scope.bigScreen = bigScreen;
 	});
 
-	$scope.logout = function(){
-		auth.unauth();
+	$scope.go = function(state){
+		$mdSidenav('left').close();
+		$state.go(state);
 	}
 
-	$scope.goTo = function(path){
-		$location.path(path);
-		$mdSidenav('left').close();
+	$scope.logout = function(){
+		auth.unauth();
 	}
 
 	$scope.openNav = function(){
