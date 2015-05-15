@@ -1,4 +1,4 @@
-app.factory('auth', function($http, $q, $location){
+app.factory('auth', function($rootScope, $http, $q, $location){
 	var _user,
 			_defaultAdmin = {
 				'name': 'admin',
@@ -42,10 +42,11 @@ app.factory('auth', function($http, $q, $location){
 						data.pass
 						&& user.name == data.name
 						&& user.pass == data.pass){
-							_user = data;
+							$rootScope.user = _user = data;
 							deferred.resolve(data)
 					}else if(user.name == 'admin' && user.pass == '123'){
-						_user = _defaultAdmin;
+						$rootScope.user = _user = _defaultAdmin;
+						console.dir($rootScope.user);
 						deferred.resolve(_defaultAdmin);
 					}else{
 						_failure(deferred, 'invalid', user);
@@ -58,8 +59,7 @@ app.factory('auth', function($http, $q, $location){
 		return deferred.promise;
 	}
 	function unauth(){
-		user = null;
-		console.log("Yo?");
+		_user = null;
 		$location.path('/login');
 	}
 

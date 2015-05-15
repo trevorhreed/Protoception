@@ -13,7 +13,7 @@ html,body{
 body{
 	&>div[ui-view]{
 		height:100%;
-		overflow:auto;
+		//overflow:auto;
 	}
 }
 

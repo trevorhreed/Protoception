@@ -1,2 +1,17 @@
-<h1>People!</h1>
-<p>{{test}}</p>
+<div ui-view>
+	<div style="position:fixed;bottom:1rem;right:1.3rem;z-index:1111">
+		<md-button class="md-fab md-primary	" ng-click="$state.go('.edit')">
+			<md-icon md-font-icon="icon-plus" class="md-primary" style="color:#fff;" aria-label="add"></md-icon>
+		</md-button>
+	</div>
+	<md-content style="margin-bottom:4rem;" flex>
+		<md-list>
+			<md-list-item ng-repeat="person in usersApi.items" class="md-2-line" ng-click="$state.go('.edit', {key: person.$key})">
+				<div class="md-list-item-text">
+					<h3>{{person.name}}</h3>
+					<p>{{person.email}}</p>
+				</div>
+			</md-list-item>
+		</md-list>
+	</md-content>
+</div>

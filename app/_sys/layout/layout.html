@@ -1,24 +1,38 @@
 <div layout="column" tall>
 	<md-toolbar class="md-accent">
 		<div class="md-toolbar-tools">
-			<md-button ng-click="openNav()" hide-gt-md>Nav</md-button>
-			<h2><span>App!</span></h2>
+			<md-button ng-click="openNav()" hide-gt-md class="md-icon-button md-primary">
+				<md-icon md-font-icon="icon-menu" class="md-secondary" aria-label="menu"></md-icon>
+			</md-button>
+			<h2><span>{{title || "App!"}}</span></h2>
 			<span flex></span>
-			<span hide show-gt-md>Hello, {{user.name}}!</span>
-			<md-button class="md-primary" ng-click="logout()">Logout</md-button>
 		</div>
 	</md-toolbar>
 	<md-content layout="row" flex>
 		<md-sidenav md-component-id="left-spacer" md-is-locked-open="$mdMedia('gt-md')"></md-sidenav>
 		<md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" class="md-sidenav-left md-whiteframe-z1" fixed-left-nav>
 			<md-list>
-				<div ng-repeat="section in navigation | orderBy: 'sort'">
-					<md-divider ng-if="section.heading"></md-divider>
-					<md-subheader class="md-no-sticky" ng-if="section.heading">{{section.heading}}</md-subheader>
-					<md-list-item ng-repeat="item in section.items | orderBy: 'sort'" ng-click="go(item.state)">
-						<p>{{item.label}}</p>
-					</md-list-item>
-				</div>
+				<md-list-item ng-click="go('layout.home')">
+					<p>Home</p>
+				</md-list-item>
+				<md-list-item ng-click="go('layout.about')">
+					<p>About</p>
+				</md-list-item>
+				<md-list-item ng-click="go('layout.contact')">
+					<p>Contact</p>
+				</md-list-item>
+				<md-divider></md-divider>
+				<md-subheader class="md-no-sticky">Admin</md-subheader>
+				<md-list-item ng-click="go('layout.people')">
+					<p>People</p>
+				</md-list-item>
+				<md-divider></md-divider>
+				<md-list-item>
+					<p>Account: {{user.name || "Guest"}}</p>
+				</md-list-item>
+				<md-list-item ng-click="logout()">
+					<p>Logout</p>
+				</md-list-item>
 			</md-list>
 		</md-sidenav>
 		<main ui-view flex layout-padding layout-margin></main>

@@ -1,9 +1,4 @@
-app.controller('layout', function($scope, $state, $mdSidenav, $mdMedia, auth, navigation){
-
-	$scope.navigation = navigation;
-	//$scope.$state = $state;
-
-	$scope.user = auth.user();
+app.controller('layout', function($scope, $state, $mdSidenav, $mdMedia, auth){
 
 	$scope.$watch(function(){ return $mdMedia('gt-md'); }, function(bigScreen){
 		$scope.bigScreen = bigScreen;
