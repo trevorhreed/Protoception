@@ -1,25 +1,33 @@
 <div layout="column" tall>
 	<md-toolbar class="md-accent">
 		<div class="md-toolbar-tools">
-			<md-button ng-click="openNav()" hide-gt-md class="md-icon-button md-primary">
+			<md-button ng-click="openNav()" class="md-icon-button md-primary">
 				<md-icon md-font-icon="icon-menu" class="md-secondary" aria-label="menu"></md-icon>
 			</md-button>
-			<h2><span>{{title || "App!"}}</span></h2>
 			<span flex></span>
+			<md-button ng-click="go('layout.mine')" class="md-icon-button md-primary">
+				<md-icon md-font-icon="icon-user" class="md-secondary" aria-label="menu"></md-icon>
+			</md-button>
+			<md-button ng-click="go('layout.theirs')" class="md-icon-button md-primary">
+				<md-icon md-font-icon="icon-users" class="md-secondary" aria-label="menu"></md-icon>
+			</md-button>
+			<span flex></span>
+			<md-button ng-click="go('layout.create')" class="md-icon-button md-primary">
+				<md-icon md-font-icon="icon-plus" class="md-secondary" aria-label="menu"></md-icon>
+			</md-button>
 		</div>
 	</md-toolbar>
 	<md-content layout="row" flex>
-		<md-sidenav md-component-id="left-spacer" md-is-locked-open="$mdMedia('gt-md')"></md-sidenav>
-		<md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" class="md-sidenav-left md-whiteframe-z1" fixed-left-nav>
+		<md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z1" fixed-left-nav>
 			<md-list>
-				<md-list-item ng-click="go('layout.home')">
-					<p>Home</p>
+				<md-list-item ng-click="go('layout.mine')">
+					<p>Mine</p>
 				</md-list-item>
-				<md-list-item ng-click="go('layout.about')">
-					<p>About</p>
+				<md-list-item ng-click="go('layout.theirs')">
+					<p>Theirs</p>
 				</md-list-item>
-				<md-list-item ng-click="go('layout.contact')">
-					<p>Contact</p>
+				<md-list-item ng-click="go('layout.create')">
+					<p>Create</p>
 				</md-list-item>
 				<md-divider></md-divider>
 				<md-subheader class="md-no-sticky">Admin</md-subheader>

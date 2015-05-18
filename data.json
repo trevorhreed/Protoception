@@ -58,12 +58,6 @@
       "pass": "123",
       "$key": "7364362b-b1ee-4183-82af-dd30b78863f3",
       "email": "anne@example.com"
-    },
-    "f68813f5-c2fd-4957-9481-ce33190f57db": {
-      "name": "One",
-      "pass": "more",
-      "$key": "f68813f5-c2fd-4957-9481-ce33190f57db",
-      "email": "one@example.com"
     }
   }
 }
