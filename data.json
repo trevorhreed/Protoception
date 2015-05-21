@@ -1,27 +1,4 @@
 {
-  "contacts": {
-    "e9c3e83f-2a8b-41b4-bd22-d22906deef48": {
-      "name": "Trevor Reed",
-      "email": "trevorhreed@gmail.com",
-      "message": "Ok, this is pretty cool.",
-      "allowContact": true,
-      "$key": "e9c3e83f-2a8b-41b4-bd22-d22906deef48"
-    },
-    "8c15bb03-afe9-4164-ae54-9b8e7039aa21": {
-      "name": "Frank",
-      "email": "Harrison",
-      "message": "Yeah, I'm in.",
-      "$key": "8c15bb03-afe9-4164-ae54-9b8e7039aa21"
-    }
-  },
-  "tests": {
-    "928b8971-6eec-463b-9927-3e7560ed09af": {
-      "msg": "You've done it again!"
-    },
-    "58b078e2-e5de-454f-a69f-0a93923ed292": {
-      "msg": "Well, I never..."
-    }
-  },
   "users": {
     "4e5c8943-b4e7-44a3-a57c-58f3a18ccbc9": {
       "name": "Trevor Reed",
@@ -34,30 +11,26 @@
       "pass": "123",
       "$key": "ae102f83-3723-49ca-b86a-5cf595734bb4",
       "email": "frank@example.com"
+    }
+  },
+  "events": {
+    "bed77d04-b0d3-4e66-a34c-9e0485b057ae": {
+      "name": "Innebandy",
+      "when": "now",
+      "where": "gym",
+      "details": "fun",
+      "deadline": "yesterday",
+      "mine": true,
+      "$key": "bed77d04-b0d3-4e66-a34c-9e0485b057ae"
     },
-    "9310046c-9307-4528-a5d4-835bf20bef0c": {
-      "name": "Harry",
-      "pass": "123",
-      "$key": "9310046c-9307-4528-a5d4-835bf20bef0c",
-      "email": "harry@example.com"
-    },
-    "9426f854-4f4d-4e23-aa3b-bfcad60f5ad5": {
-      "name": "Amy",
-      "pass": "123",
-      "$key": "9426f854-4f4d-4e23-aa3b-bfcad60f5ad5",
-      "email": "amy@example.com"
-    },
-    "2600a105-8578-4e04-a23e-50a76e149096": {
-      "name": "Susan",
-      "pass": "123",
-      "$key": "2600a105-8578-4e04-a23e-50a76e149096",
-      "email": "susan@example.com"
-    },
-    "7364362b-b1ee-4183-82af-dd30b78863f3": {
-      "name": "Anne",
-      "pass": "123",
-      "$key": "7364362b-b1ee-4183-82af-dd30b78863f3",
-      "email": "anne@example.com"
+    "0388f5a2-3f80-42e8-9056-a1de68c9d042": {
+      "name": "Family Picnic",
+      "when": "Thursday",
+      "where": "The Canyon",
+      "details": "Bring food.",
+      "deadline": "Wednesday",
+      "mine": true,
+      "$key": "0388f5a2-3f80-42e8-9056-a1de68c9d042"
     }
   }
 }

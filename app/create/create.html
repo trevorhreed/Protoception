@@ -1,22 +1,20 @@
 <h3>Create</h3>
 
-<span ng-click="">Edit me now!</span>
-
-<md-input-container>
-	<input placeholder="name of event" />
+<md-input-container md-no-float>
+	<input placeholder="name of event?" ng-model="event.name" />
 </md-input-container>
-<md-input-container>
-	<input placeholder="when?" />
+<md-input-container md-no-float>
+	<input placeholder="when?" ng-model="event.when" />
 </md-input-container>
-<md-input-container>
-	<input placeholder="where?" />
+<md-input-container md-no-float>
+	<input placeholder="where?" ng-model="event.where" />
 </md-input-container>
-<md-input-container>
-	<input placeholder="other information" />
+<md-input-container md-no-float>
+	<input placeholder="other information?" ng-model="event.details" />
 </md-input-container>
-<md-input-container>
-	<input placeholder="RSVP deadline" />
+<md-input-container md-no-float>
+	<input placeholder="RSVP deadline?" ng-model="event.deadline" />
 </md-input-container>
 
-<md-button class="md-primary">Create</md-button>
-<md-button>Cancel</md-button>
+<md-button ng-click="save()" class="md-primary">Create</md-button>
+<md-button ng-click="cancel()">Cancel</md-button>
