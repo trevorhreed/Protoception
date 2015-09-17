@@ -1,13 +1,14 @@
-app.controller('layout', function($scope, $location, $mdSidenav, $mdMedia, auth){
+app.controller('layout', function($scope, $location, $mdSidenav, $mdMedia, user){
 
-	$scope.user = auth.user();
+	$scope.user = user.get();
 
 	$scope.$watch(function(){ return $mdMedia('gt-md'); }, function(bigScreen){
 		$scope.bigScreen = bigScreen;
 	});
 
 	$scope.logout = function(){
-		auth.unauth();
+		user.clear();
+		$location.path('/login');
 	}
 
 	$scope.goTo = function(path){

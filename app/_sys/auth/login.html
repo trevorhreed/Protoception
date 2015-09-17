@@ -1,19 +1,21 @@
 <md-content class='ns-login' layout="column" layout-fill layout-align="start center">
-	<form class="md-whiteframe-z1 login-box" ng-submit="login()">
+	<form class="md-whiteframe-z1 login-box">
 
-		<h2>Please log in</h2>
-		
-		<md-input-container>
-			<label>Username</label>
-			<input ng-model="user.name" set-focus />
-		</md-input-container>
+		<md-content layout="row">
+			<md-input-container flex>
+				<md-select placeholder="Please select a user" ng-model="user" ng-disabled="createNewUser">
+					<md-option ng-repeat="user in usersApi.items" value="{{user.$key}}">{{user.name}}</md-option>
+				</md-select>
+			</md-input-container>
+			<md-button class="md-icon-button md-warn" aria-label="Remove" ng-click="remove()">
+				<md-icon md-font-icon="icon-cross"></md-icon>
+			</md-button>
+			<md-button class="md-icon-button green" aria-label="Add" ng-click="add()">
+				<md-icon md-font-icon="icon-plus"></md-icon>
+			</md-button>
+		</md-content>
 
-		<md-input-container>
-			<label>Password</label>
-			<input ng-model="user.pass" type="password" />
-		</md-input-container>
-
-		<md-button class="btn-login">Login</md-button>
+		<md-button class="btn-login" ng-click="login()">Login</md-button>
 
 	</form>
 </md-content>

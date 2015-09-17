@@ -1,19 +1,20 @@
 {
-  "contacts": {
-    "e9c3e83f-2a8b-41b4-bd22-d22906deef48": {
-      "name": "Trevor Reed",
-      "email": "trevorhreed@gmail.com",
-      "message": "Ok, this is pretty cool.",
-      "allowContact": true,
-      "$key": "e9c3e83f-2a8b-41b4-bd22-d22906deef48"
-    }
-  },
-  "tests": {
-    "928b8971-6eec-463b-9927-3e7560ed09af": {
-      "msg": "You've done it again!"
+  "users": {
+    "6256f208-31f8-4c9d-938c-8a888cfe372e": {
+      "name": "Trevor",
+      "$key": "6256f208-31f8-4c9d-938c-8a888cfe372e"
     },
-    "58b078e2-e5de-454f-a69f-0a93923ed292": {
-      "msg": "Well, I never..."
+    "dc76e9e9-d30f-4b4d-9870-836b45b72727": {
+      "name": "Trevor",
+      "$key": "dc76e9e9-d30f-4b4d-9870-836b45b72727"
+    },
+    "d03ac1c4-b286-4b1f-af80-0707424f4fa3": {
+      "name": "Frank",
+      "$key": "d03ac1c4-b286-4b1f-af80-0707424f4fa3"
+    },
+    "0ac8faa3-ef1c-4ab5-9fbe-c264c9c90e2e": {
+      "name": "Henry",
+      "$key": "0ac8faa3-ef1c-4ab5-9fbe-c264c9c90e2e"
     }
   }
 }
